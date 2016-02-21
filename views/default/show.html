@@ -16,9 +16,9 @@
 
 <form><input type="hidden" id="id" name="id" value="" /></form>
 <li>
-Votes=<span id="{{=seller.id}}">{{=seller.rating}}</span>
-[(<span onclick="jQuery('#id').val('{{=seller.id}}');
-       ajax('{{=URL('default', 'ratingup')}}', ['id'], '{{=seller.id}}');">vote up</span>)]
+Votes=<span id="{{=seller}}">{{=seller.rating}}</span>
+[(<span onclick="jQuery('#id').val('{{=seller}}');
+       ajax('{{=URL('default', 'ratingup')}}', ['id'], '{{=seller}}');">vote up</span>)]
 </li>
 {{=seller.id}} {{='id'}}
 <li>Seller Email: {{=seller.email}}</li>

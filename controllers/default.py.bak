@@ -22,17 +22,19 @@ def show():
 
 
 def ratingup():
-    owner = db.picture[request.vars.id]
+    #owner = db.picture[request.vars.id]
+    owner = db.owners[request.vars.id]
     new_rating = owner.rating+1
     owner.updata_record(rating=new_rating)
     return str(new_votes)
+    #return locals()
 
 def ratingdown():
     owner = db.picture[request.vars.id]
-    if(owner.rating > 0 )
-        new_rating = owner.rating-1
-    else
-        new_rating = 0
+    #if(owner.rating > 0 ):
+    new_rating = owner.rating-1
+    #else:
+    #    new_rating = 0
     owner.updata_record(rating=new_rating)
     return str(new_votes)
 
