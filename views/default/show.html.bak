@@ -1,0 +1,48 @@
+{{extend 'layout.html'}}
+<h1>{{=poster.title}}</h1>
+<p>Image</p>
+{{for image in images:}}
+<p>
+  <img onmouseover="bigImg(this)" onmouseout="normalImg(this)"  class="img-thumbnail" alt="Cinque Terre"  src="{{=URL('download', args=image.pic)}}" />
+<br/>
+
+
+</p>
+{{pass}}
+<p>Seller</p>
+<li>Seller Name: {{=seller.name}}</li>
+<li>Seller Rating: {{=seller.rating}}
+<br>
+
+<form><input type="hidden" id="id" name="id" value="" /></form>
+<li>
+Votes=<span id="{{=seller.id}}">{{=seller.rating}}</span>
+[(<span onclick="jQuery('#id').val('{{=seller.id}}');
+       ajax('{{=URL('default', 'ratingup')}}', ['id'], '{{=seller.id}}');">vote up</span>)]
+</li>
+{{=seller.id}} {{='id'}}
+<li>Seller Email: {{=seller.email}}</li>
+<li>Seller Phone: {{=seller.phone}}</li>
+
+<p>Time: {{=poster.created_on}}</p>
+<p>Description: {{=poster.description}}</p>
+<p>Category: {{=poster.category}}</p>
+<p>Price: {{=poster.price}}</p>
+{{if (poster.status):}}
+  <p>Post Status: avaiable</p>
+{{else:}}
+  <p>Post Status: unavaiable</p>
+{{pass}}
+
+
+<script>
+function bigImg(x) {
+    x.style.height = "300px";
+    x.style.width = "300px";
+}
+
+function normalImg(x) {
+    x.style.height = "100px";
+    x.style.width = "100px";
+}
+</script>

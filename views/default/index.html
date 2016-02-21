@@ -1,0 +1,6 @@
+{{extend 'layout.html'}}
+<h1> Items for sale</h1>
+    {{for item in items:}}
+        <p>{{=A(item.title, _href=URL('show', args=item.id))}}</p>
+
+    {{pass}}
