@@ -9,18 +9,17 @@
 
 </p>
 {{pass}}
+<form><input type="hidden" id="id" name="id" value="" /></form>
 <p>Seller</p>
 <li>Seller Name: {{=seller.name}}</li>
-<li>Seller Rating: {{=seller.rating}}
-<br>
 
-<form><input type="hidden" id="id" name="id" value="" /></form>
 <li>
-Votes=<span id="{{=seller.id}}">{{=seller.rating}}</span>
-[(<span onclick="jQuery('#id').val('{{=seller.id}}');
-       ajax('{{=URL('default', 'ratingup')}}', ['id'], '{{=seller.id}}');">vote up</span>)]
+Seller Rating=<span id="seller{{=seller.id}}">{{=seller.rating}}</span>
+<button type="button" class="btn btn-primary btn-sm" onclick="jQuery('#id').val('{{=seller.id}}');
+       ajax('{{=URL('default', 'ratingup')}}', ['id'], 'seller{{=seller.id}}');">vote up</button>
+<button type="button" class="btn btn-primary btn-sm" onclick="jQuery('#id').val('{{=seller.id}}');
+       ajax('{{=URL('default', 'ratingdown')}}', ['id'], 'seller{{=seller.id}}');">vote down</button>
 </li>
-{{=seller.id}} {{='id'}}
 <li>Seller Email: {{=seller.email}}</li>
 <li>Seller Phone: {{=seller.phone}}</li>
 
@@ -45,4 +44,7 @@ function normalImg(x) {
     x.style.height = "100px";
     x.style.width = "100px";
 }
+
+
+
 </script>

@@ -135,7 +135,7 @@ sS'type'
 p45
 S'reference seller'
 p46
-ssS'owners_id'
+ssS'id'
 p47
 (dp48
 g4
@@ -143,14 +143,14 @@ I512
 sg5
 I00
 sg6
-I3
+I1
 sg7
-S'INTEGER REFERENCES owners (id) ON DELETE CASCADE  '
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
 p49
 sg9
 I00
 sg10
-S'reference owners'
+S'id'
 p50
 ssS'created_on'
 p51
@@ -169,7 +169,7 @@ I00
 sg10
 S'datetime'
 p54
-ssS'id'
+ssS'owners_id'
 p55
 (dp56
 g4
@@ -177,13 +177,13 @@ I512
 sg5
 I00
 sg6
-I1
+I3
 sg7
-S'INTEGER PRIMARY KEY AUTOINCREMENT'
+S'INTEGER REFERENCES owners (id) ON DELETE CASCADE  '
 p57
 sg9
 I00
 sg10
-S'id'
+S'reference owners'
 p58
 ss.
